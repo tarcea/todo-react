@@ -6,7 +6,7 @@ export const todoReducer = (state, action) => {
       return[...state, {
         todo: action.todo.todo,
         who: action.todo.who,
-        edit: false,
+        done: action.todo.done || false,
         id: uuid()
       }]
     case 'REMOVE_TODO':

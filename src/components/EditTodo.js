@@ -16,7 +16,6 @@ const [todo, setTodo] = useState(toEdit);
   const handleChange = (e) => {
     const value = e.target.value;
     setTodo({...todo, [e.target.name]: value})
-
   }
 
   return (

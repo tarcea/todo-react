@@ -14,11 +14,13 @@ const ViewTodos = () => {
     )
   }
 
+
+
   const viewTodos = todos.map(todo => (
         <div key={todo.id}>
           <p>
             <label>
-              <input type="checkbox" onClick={handleClick} id="todo-item" />
+              <input type="checkbox" onClick={handleClick} id="done" />
               <span style={{color: "red"}}>{todo.todo} -> {todo.who}</span>
               <button onClick={() => dispatch({
                 type: 'REMOVE_TODO', id: todo.id

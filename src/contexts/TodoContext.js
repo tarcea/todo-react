@@ -34,7 +34,7 @@ const TodoContextProvider = (props) => {
     <TodoContext.Provider
       value={
         { todos, editTodo, editMode,
-          toEdit, cancel, dispatch
+          toEdit, cancel, dispatch, setTo
         }
       }>
       {props.children}
