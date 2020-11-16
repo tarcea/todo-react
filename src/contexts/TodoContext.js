@@ -30,6 +30,8 @@ const TodoContextProvider = (props) => {
     setMode(false);
   }
 
+
+
   return (
     <TodoContext.Provider
       value={
