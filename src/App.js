@@ -6,15 +6,15 @@ import TodoContextProvider from './contexts/TodoContext';
 const App = () => {
   const [done, setDone] = useState(false);
 
-  const isDone = (todo) => {
-    setDone(!done)
-    todo.done = done;
+  const isDone = (flag) => {
+    setDone(flag)
+
   }
 
   return (
     <div className="container">
       <TodoContextProvider>
-        <ViewTodos isDone={isDone} />
+        <ViewTodos isDone={isDone} done={done} />
         <Update />
       </TodoContextProvider>
     </div>

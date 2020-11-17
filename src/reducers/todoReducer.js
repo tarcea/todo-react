@@ -6,7 +6,7 @@ export const todoReducer = (state, action) => {
       return[...state, {
         todo: action.todo.todo,
         who: action.todo.who,
-        done: action.todo.done || false,
+        done: false,
         id: uuid()
       }]
     case 'REMOVE_TODO':
@@ -14,9 +14,13 @@ export const todoReducer = (state, action) => {
       return todo.id !== action.id
     });
     case 'UPDATE_TODO':
-    return state.map(
-      (todo) => (todo.id === action.id ? action.todo : todo)
-      )
+      return state.map(
+        (todo) => (todo.id === action.id ? action.todo : todo)
+        )
+    case 'DONE':
+      return state.map(
+        (todo) => (todo.id === action.id ?
+         {...action.todo, done:!todo.done} : todo))
     default:
       return state
   }
