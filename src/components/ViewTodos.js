@@ -14,8 +14,6 @@ const ViewTodos = () => {
     )
   }
 
-
-
   const viewTodos = todos.map(todo => (
         <div key={todo.id}>
           <p>
@@ -23,7 +21,7 @@ const ViewTodos = () => {
               <input type="checkbox"
                      id="done"
                      onClick={handleClick}
-                      onChange={()=> dispatch({type: 'DONE', id: todo.id, todo: todo})}
+                     onChange={()=> dispatch({type: 'DONE', id: todo.id, todo: todo})}
               />
               <span style={{color: "red"}}>{todo.todo} -> {todo.who}</span>
               <button onClick={() => dispatch({

@@ -1,4 +1,4 @@
-import uuid from 'uuid/v1';
+import { v4 as uuidv4 } from 'uuid';
 
 export const todoReducer = (state, action) => {
   switch(action.type) {
@@ -7,20 +7,24 @@ export const todoReducer = (state, action) => {
         todo: action.todo.todo,
         who: action.todo.who,
         done: false,
-        id: uuid()
+        id: uuidv4()
       }]
+
     case 'REMOVE_TODO':
       return state.filter(todo => {
       return todo.id !== action.id
     });
+
     case 'UPDATE_TODO':
       return state.map(
         (todo) => (todo.id === action.id ? action.todo : todo)
         )
+
     case 'DONE':
       return state.map(
         (todo) => (todo.id === action.id ?
          {...action.todo, done:!todo.done} : todo))
+
     default:
       return state
   }
